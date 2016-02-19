@@ -1,0 +1,67 @@
+Name: mirage-ir
+Version: 0.0.1
+Synopsis: A simple information retrieval library on top of mirage-block-fs
+Authors: Rupert Horlick <ruhatch@me.com>
+License: LGPL with OCaml linking exception
+
+Description: A simple information retrieval libarary on top of mirage-block-fs
+Homepage: https://github.com/ruhatch/mirage-ir
+
+OASISFormat: 0.4
+BuildTools: ocamlbuild
+Plugins: META (0.4), DevFiles (0.4)
+
+Library mirage_ir
+  Path:             lib
+  Findlibname:      mirage-ir
+  Modules:          SearchClient,
+                    InvertedIndex
+  BuildDepends:     bisect_ppx,
+                    mirage,
+                    cstruct,
+                    lwt,
+                    lwt.ppx,
+                    mirage-block-fs,
+                    core_kernel,
+                    bin_prot,
+                    stemmer
+
+Executable inverted_index_tests
+  Path:             tests
+  MainIs:           invertedIndexTests.ml
+  Build$:           flag(tests)
+  CompiledObject:   best
+  Install:          false
+  BuildDepends:     bisect_ppx,
+                    mirage-block-fs,
+                    mirage-ir,
+                    alcotest,
+                    mirage-block-unix,
+                    lwt,
+                    tests
+
+Executable search_client_tests
+  Path:             tests
+  MainIs:           searchClientTests.ml
+  Build$:           flag(tests)
+  CompiledObject:   best
+  Install:          false
+  BuildDepends:     bisect_ppx,
+                    mirage-block-fs,
+                    mirage-ir,
+                    alcotest,
+                    mirage-block-unix,
+                    lwt,
+                    tests
+
+Test inverted_index_tests
+  Run$:             flag(tests)
+  TestTools:        inverted_index_tests
+  Command:          $inverted_index_tests
+  WorkingDirectory: tests
+
+Test search_client_tests
+  Run$:             flag(tests)
+  TestTools:        search_client_tests
+  Command:          $search_client_tests
+  WorkingDirectory: tests
