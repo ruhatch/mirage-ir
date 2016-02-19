@@ -1,0 +1,69 @@
+# OASIS_START
+# DO NOT EDIT (digest: b910fa503cf27b42f6933b60972b3a2f)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+true: annot, bin_annot
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library mirage_ir
+"lib/mirage_ir.cmxs": use_mirage_ir
+<lib/*.ml{,i,y}>: pkg_bin_prot
+<lib/*.ml{,i,y}>: pkg_bisect_ppx
+<lib/*.ml{,i,y}>: pkg_core_kernel
+<lib/*.ml{,i,y}>: pkg_cstruct
+<lib/*.ml{,i,y}>: pkg_lwt
+<lib/*.ml{,i,y}>: pkg_lwt.ppx
+<lib/*.ml{,i,y}>: pkg_mirage
+<lib/*.ml{,i,y}>: pkg_mirage-block-fs
+<lib/*.ml{,i,y}>: pkg_stemmer
+# Executable inverted_index_tests
+<tests/invertedIndexTests.{native,byte}>: pkg_alcotest
+<tests/invertedIndexTests.{native,byte}>: pkg_bin_prot
+<tests/invertedIndexTests.{native,byte}>: pkg_bisect_ppx
+<tests/invertedIndexTests.{native,byte}>: pkg_core_kernel
+<tests/invertedIndexTests.{native,byte}>: pkg_cstruct
+<tests/invertedIndexTests.{native,byte}>: pkg_lwt
+<tests/invertedIndexTests.{native,byte}>: pkg_lwt.ppx
+<tests/invertedIndexTests.{native,byte}>: pkg_mirage
+<tests/invertedIndexTests.{native,byte}>: pkg_mirage-block-fs
+<tests/invertedIndexTests.{native,byte}>: pkg_mirage-block-unix
+<tests/invertedIndexTests.{native,byte}>: pkg_stemmer
+<tests/invertedIndexTests.{native,byte}>: pkg_tests
+<tests/invertedIndexTests.{native,byte}>: use_mirage_ir
+# Executable search_client_tests
+<tests/searchClientTests.{native,byte}>: pkg_alcotest
+<tests/searchClientTests.{native,byte}>: pkg_bin_prot
+<tests/searchClientTests.{native,byte}>: pkg_bisect_ppx
+<tests/searchClientTests.{native,byte}>: pkg_core_kernel
+<tests/searchClientTests.{native,byte}>: pkg_cstruct
+<tests/searchClientTests.{native,byte}>: pkg_lwt
+<tests/searchClientTests.{native,byte}>: pkg_lwt.ppx
+<tests/searchClientTests.{native,byte}>: pkg_mirage
+<tests/searchClientTests.{native,byte}>: pkg_mirage-block-fs
+<tests/searchClientTests.{native,byte}>: pkg_mirage-block-unix
+<tests/searchClientTests.{native,byte}>: pkg_stemmer
+<tests/searchClientTests.{native,byte}>: pkg_tests
+<tests/searchClientTests.{native,byte}>: use_mirage_ir
+<tests/*.ml{,i,y}>: pkg_alcotest
+<tests/*.ml{,i,y}>: pkg_bin_prot
+<tests/*.ml{,i,y}>: pkg_bisect_ppx
+<tests/*.ml{,i,y}>: pkg_core_kernel
+<tests/*.ml{,i,y}>: pkg_cstruct
+<tests/*.ml{,i,y}>: pkg_lwt
+<tests/*.ml{,i,y}>: pkg_lwt.ppx
+<tests/*.ml{,i,y}>: pkg_mirage
+<tests/*.ml{,i,y}>: pkg_mirage-block-fs
+<tests/*.ml{,i,y}>: pkg_mirage-block-unix
+<tests/*.ml{,i,y}>: pkg_stemmer
+<tests/*.ml{,i,y}>: pkg_tests
+<tests/*.ml{,i,y}>: use_mirage_ir
+# OASIS_STOP
